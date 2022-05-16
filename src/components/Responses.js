@@ -4,7 +4,7 @@ import ResponseCard from "./ResponseCard";
 const Responses = (props) => {
     const { results } = props;
     return (
-        <div>
+        <div className="responses">
             {
                 results.map((result, idx) => (
                     <div key={idx}>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import getResponseFromOpenAI from '../resources';
 import PromptForm from './PromptForm';
 import Responses from './Responses';
@@ -17,23 +16,28 @@ const App = () => {
 		evt.preventDefault();
 		const key = process.env.REACT_APP_OPENAI_KEY;
 		const responseFromOpenAI = await getResponseFromOpenAI(key, currentPrompt);
-		const result = {
+		const response = {
 			prompt: currentPrompt,
 			response: responseFromOpenAI
 		}
-		setResponses([result, ...responses]);
+		setResponses([response, ...responses]);
 		setCurrentPrompt('');
 	}
 
 	return (
-		<div className="App">
+		<div className="app">
 			<h1>Fun with AI</h1>
-			<div>
-				<PromptForm handleChange={handleChange} handleSubmit={handleSubmit} currentPrompt={currentPrompt} />
+			
+			<div className="prompt-form">
+				<PromptForm
+					handleChange={handleChange}
+					handleSubmit={handleSubmit}
+					currentPrompt={currentPrompt} 
+				/>
 			</div>
 			<div>
 				<h2>Responses: </h2>
-				{ responses.length ? <Responses results={responses} /> : null }
+				{responses.length ? <Responses results={responses} /> : null}
 			</div>
 		</div>
 	);

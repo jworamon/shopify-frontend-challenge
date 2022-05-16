@@ -2,13 +2,17 @@ import React from "react";
 
 const ResponseCard = (props) => {
     const { prompt, response } = props.result;
-   
+
     return (
-        <div>
-            <h4>Prompt:</h4>
-            <p>{prompt}</p>
-            <h4>Response:</h4>
-            <p>{response}</p>
+        <div className="response-card">
+            <div className="card-row">
+                <h4>Prompt:</h4>
+                <p>{prompt}</p>
+            </div>
+            <div className="card-row">
+                <h4>Response:</h4>
+                <p>{response}</p>
+            </div>
         </div>
     )
 }
