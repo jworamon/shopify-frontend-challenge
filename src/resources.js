@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 const getResponseFromOpenAI = async (key, engine, prompt) => {
     try {
         const data = {
@@ -10,14 +8,18 @@ const getResponseFromOpenAI = async (key, engine, prompt) => {
             frequency_penalty: 0.0,
             presence_penalty: 0.0,
            };
-           
-        const response = await axios.post(`https://api.openai.com/v1/engines/${engine}/completions`, data, {
+  
+        const responseFromOpenAI = await fetch(`https://api.openai.com/v1/engines/${engine}/completions`, {
+            method: 'POST',
             headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
                 authorization: `Bearer ${key}`,
-            }
-        })
-        return response.data.choices[0].text;
+            },
+            body: JSON.stringify(data)
+        });
+        
+        const response = await responseFromOpenAI.json();
+        return response.choices[0].text;
     } catch(err) {
         console.log('Error: ', err.message);
     }
