@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import getResponseFromOpenAI from '../resources';
 import PromptForm from './PromptForm';
 import Responses from './Responses';
@@ -7,6 +7,11 @@ import Responses from './Responses';
 const App = () => {
 	const [currentPrompt, setCurrentPrompt] = useState('');
 	const [responses, setResponses] = useState([]);
+
+	useEffect(() => {
+		const responsesFromLocalStorage = localStorage.getItem('responses');
+		setResponses([...JSON.parse(responsesFromLocalStorage)]);
+	}, []);
 
 	const handleChange = (evt) => {
 		setCurrentPrompt(evt.target.value);
@@ -20,7 +25,9 @@ const App = () => {
 			prompt: currentPrompt,
 			response: responseFromOpenAI
 		}
-		setResponses([response, ...responses]);
+		const updatedResponses = [response, ...responses];
+		setResponses(updatedResponses);
+		localStorage.setItem('responses', JSON.stringify(updatedResponses));
 		setCurrentPrompt('');
 	}
 
