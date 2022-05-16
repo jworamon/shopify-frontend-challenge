@@ -1,4 +1,4 @@
-import react, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import getResponseFromOpenAI from '../resources';
 import Responses from './Responses';
