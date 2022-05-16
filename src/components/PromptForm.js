@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const PromptForm = (props) => {
     const { handleChange, handleSubmit, currentPrompt } = props;
