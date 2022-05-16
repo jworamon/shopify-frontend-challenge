@@ -10,7 +10,9 @@ const App = () => {
 
 	useEffect(() => {
 		const responsesFromLocalStorage = localStorage.getItem('responses');
-		setResponses([...JSON.parse(responsesFromLocalStorage)]);
+		if (responsesFromLocalStorage) {
+			setResponses([...JSON.parse(responsesFromLocalStorage)]);
+		}
 	}, []);
 
 	const handleChange = (evt) => {
