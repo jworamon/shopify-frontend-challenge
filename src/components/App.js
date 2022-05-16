@@ -15,7 +15,7 @@ const App = () => {
 	const handleSubmit = async (evt) => {
 		evt.preventDefault();
 		const key = process.env.REACT_APP_OPENAI_KEY;
-		const responseFromOpenAI = await getResponseFromOpenAI(key, currentPrompt);
+		const responseFromOpenAI = await getResponseFromOpenAI(key, 'text-curie-001', currentPrompt);
 		const response = {
 			prompt: currentPrompt,
 			response: responseFromOpenAI
