@@ -14,33 +14,45 @@ h1 {
   margin-bottom: 50px;
 }
 
-label {
-  font-size: 20px;
+h2, form > label {
+  font-size: 22px;
 }
 
 textarea {
   width: 600px;
   height: 200px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
 
+.select-engine {
+  font-size: 15px;
+  font-weight: bold;
+}
+
 .submit-button {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 button {
   width: 100px;
   height: 35px;
+  margin-top: 15px;
   background-color: #2a66de;
   border: 2px solid #2a66de;
   border-radius: 4px;
   align-content: flex-end;
   font-size: 17px;
   color: #ffffffef;
+}
+
+.response {
+  display: flex;
+  justify-content: space-between;
 }
 
 .response-card {

@@ -1,7 +1,8 @@
 import React from 'react';
+import EngineSelection from './EngineSelection';
 
 const PromptForm = (props) => {
-    const { handleChange, handleSubmit, currentPrompt } = props;
+    const { handleChange, handleSubmit, handleSelect, currentPrompt, isLoading } = props;
 
     return (
         <form onSubmit={handleSubmit}>
@@ -14,7 +15,8 @@ const PromptForm = (props) => {
             />
             <br />
             <div className="submit-button">
-                <button type="submit">Submit</button>
+                <EngineSelection handleSelect={handleSelect} />
+                <button type="submit" disabled={isLoading}>Submit</button>
             </div>
         </form>
     );
