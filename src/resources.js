@@ -3,7 +3,7 @@ const getResponseFromOpenAI = async (key, engine, prompt) => {
         const data = {
             prompt: prompt,
             temperature: 0.5,
-            max_tokens: 256,
+            max_tokens: 250,
             top_p: 1.0,
             frequency_penalty: 0.0,
             presence_penalty: 0.0,
