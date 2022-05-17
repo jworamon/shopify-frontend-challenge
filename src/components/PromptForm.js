@@ -2,11 +2,21 @@ import React from 'react';
 import EngineSelection from './EngineSelection';
 
 const PromptForm = (props) => {
-    const { handleChange, handleSubmit, handleSelect, currentPrompt, isLoading } = props;
+    const { 
+        handleChange, 
+        handleSubmit, 
+        handleSelect, 
+        handleSurprise,
+        currentPrompt, 
+        isLoading 
+    } = props;
 
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="currentPrompt"><b>Enter Prompt:</b></label>
+            <div className="form-header">
+                <label htmlFor="currentPrompt"><b>Enter Prompt:</b></label>
+                <button type="button" onClick={handleSurprise}>Surprise me!</button>
+            </div>
             <br />
             <textarea
                 name="currentPrompt"

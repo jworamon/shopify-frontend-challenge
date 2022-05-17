@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import getResponseFromOpenAI from '../resources';
+import { prompts } from '../prompts';
 import PromptForm from './PromptForm';
 import Responses from './Responses';
 
@@ -41,6 +42,11 @@ const App = () => {
 		setCurrentPrompt('');
 	}
 
+	const handleSurprise = () => {
+		const idx = Math.floor(Math.random() * prompts.length);
+		setCurrentPrompt(prompts[idx]);
+	}
+
 	return (
 		<div className="app">
 			<h1>Fun with AI</h1>
@@ -49,6 +55,7 @@ const App = () => {
 					handleChange={handleChange}
 					handleSubmit={handleSubmit}
 					handleSelect={handleSelect}
+					handleSurprise={handleSurprise}
 					currentPrompt={currentPrompt}
 					isLoading={isLoading}
 				/>
