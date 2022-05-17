@@ -17,10 +17,6 @@ const App = () => {
 		}
 	}, []);
 
-	useEffect(() => {
-		console.log(engine);
-	}, [engine]);
-
 	const handleSelect = (evt) => {
 		setEngine(evt.target.value);
 	}
